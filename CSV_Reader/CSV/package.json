@@ -1,0 +1,15 @@
+{
+  "name": "CSV",
+  "version": "1.0.0",
+  "scripts": {
+    "start:build": "tsc",
+    "start:run": "nodemon ./build/index.js",
+    "start": "concurrently npm:start:*"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "nodemon": "^2.0.2",
+    "@types/node": "^13.7.0"
+  }
+}
