@@ -14,11 +14,15 @@ var MatchResult;
     MatchResult["Draw"] = "D";
 })(MatchResult || (MatchResult = {}));
 ;
+var teamName = 'Chelsea';
 var manUnitedWins = 0;
 for (var _i = 0, matches_1 = matches; _i < matches_1.length; _i++) {
     var match = matches_1[_i];
-    match[1] === 'Man United' && match[5] === MatchResult.HomeWin ? manUnitedWins += 1 :
-        (match[2] === 'Man United' && match[5] === MatchResult.AwayWin ? manUnitedWins += 1 : '');
+    match[1] === teamName && match[5] === MatchResult.HomeWin ? manUnitedWins += 1 :
+        (match[2] === teamName && match[5] === MatchResult.AwayWin ? manUnitedWins += 1 : '');
 }
-console.log("Man United won " + manUnitedWins + " games");
+var filterMatch = matches.filter(function (x) { return (x[1] === teamName && x[5] === MatchResult.HomeWin) || (x[2] === teamName && x[5] === MatchResult.AwayWin); });
+var firstElement = teamName + " won " + manUnitedWins + " games \n";
+var arr = firstElement + filterMatch.join('\n');
+var writeMatches = fs.writeFileSync(__dirname + "/../filterMatches.csv", arr, { encoding: 'utf8' });
 //# sourceMappingURL=index.js.map
