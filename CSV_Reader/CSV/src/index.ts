@@ -15,6 +15,8 @@ const teamName = 'Man United';
 const matchReader = new MatchReader(`${__dirname}/../football.csv`);
 matchReader.read();
 
+const teamName = 'Chelsea';
+
 let manUnitedWins = 0;
 for(let match of matchReader.data) {
   match[1] === teamName && match[5] === MatchResult.HomeWin ? manUnitedWins += 1 :
